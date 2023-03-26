@@ -21,7 +21,20 @@ const Homepage = ({setLoginUser}) => {
 
     return(
         <div className="homepage">
-            <img src={photoData.hdurl} alt={photoData.title}></img>
+            {photoData.media_type === "image" ? 
+                <img src={photoData.url} alt={photoData.title}></img>
+                :
+                <iframe 
+                width="560"
+                height="315"
+                src={photoData.url}
+                title="Video"
+                frameborder="0"
+                allowFullScreen
+                >
+                </iframe>
+            }
+            
             <div>
                 <h1>{photoData.title}</h1>
                 <p>{photoData.date}</p>
